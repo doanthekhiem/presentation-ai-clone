@@ -17,9 +17,7 @@ import { LoadingState } from "./Loading";
 import { PresentationLayout } from "./PresentationLayout";
 import { PresentationSlidesView } from "./PresentationSlidesView";
 
-export default function PresentationPage() {
-  const params = useParams();
-  const id = params.id as string || "1";
+export default function PresentationPage({ id }: { id: string }) {
   const { resolvedTheme } = useTheme();
   const [shouldFetchData, setSetShouldFetchData] = useState(true);
   const {

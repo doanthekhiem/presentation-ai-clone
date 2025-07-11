@@ -6,5 +6,5 @@ import React from "react";
 
 
 export default function Page() {
-  return <PresentationPage />;
+  return <PresentationPage id="1" />;
 }
