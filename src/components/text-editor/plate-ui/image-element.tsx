@@ -32,7 +32,7 @@ export const ImageElement = withHOC(
       return (
         <MediaPopover plugin={ImagePlugin}>
           <PlateElement
-            ref={ref}
+           ref={ref as React.Ref<HTMLDivElement>}
             className={cn(className, 'py-2.5')}
             {...props}
           >

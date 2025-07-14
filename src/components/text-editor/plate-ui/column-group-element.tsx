@@ -31,7 +31,7 @@ export const ColumnGroupElement = withRef<typeof PlateElement>(
   ({ children, className, ...props }, ref) => {
     return (
       <PlateElement
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         className={cn(className, "mb-2", "group/column-group relative")}
         {...props}
       >

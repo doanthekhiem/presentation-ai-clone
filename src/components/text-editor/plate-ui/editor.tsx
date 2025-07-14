@@ -96,7 +96,7 @@ export const Editor = React.forwardRef<HTMLDivElement, EditorProps>(
   ({ className, disabled, focused, variant, ...props }, ref) => {
     return (
       <PlateContent
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         className={cn(
           editorVariants({
             disabled,

@@ -107,12 +107,14 @@ export function ThemeCreator({ children }: { children?: ReactNode }) {
         },
       });
     } else {
-      const selectedTheme = themes[watchedThemeBase];
-      setValue("colors", { ...selectedTheme.colors });
-      setValue("fonts", { ...selectedTheme.fonts });
-      setValue("borderRadius", selectedTheme.borderRadius);
-      setValue("transitions", { ...selectedTheme.transitions });
-      setValue("shadows", { ...selectedTheme.shadows });
+      const selectedTheme = themes[watchedThemeBase as keyof typeof themes];
+      if (selectedTheme) {
+        setValue("colors", { ...selectedTheme.colors });
+        setValue("fonts", { ...selectedTheme.fonts });
+        setValue("borderRadius", selectedTheme.borderRadius);
+        setValue("transitions", { ...selectedTheme.transitions });
+        setValue("shadows", { ...selectedTheme.shadows });
+      }
     }
   }, [watchedThemeBase, setValue]);
 
@@ -145,15 +147,15 @@ export function ThemeCreator({ children }: { children?: ReactNode }) {
         }
       }
 
-      // Separate the basic metadata from the theme styling data
-      const { name, description, isPublic, ...themeStyleData } = data;
-
+      // Map the complex theme data to the simple schema format
       const themeData = {
-        name,
-        description,
-        isPublic,
-        logo: logoUrl,
-        themeData: themeStyleData, // Add the theme styling data as nested themeData field
+        name: data.name,
+        primaryColor: data.colors.light.primary,
+        secondaryColor: data.colors.light.secondary,
+        backgroundColor: data.colors.light.background,
+        textColor: data.colors.light.text,
+        fontFamily: data.fonts.heading,
+        logoUrl: logoUrl,
       };
 
       const result = await createCustomTheme(themeData);
@@ -165,7 +167,7 @@ export function ThemeCreator({ children }: { children?: ReactNode }) {
       } else {
         toast({
           title: "Error",
-          description: result.message || "Failed to create theme",
+          description: result.message ?? "Failed to create theme",
           variant: "destructive",
         });
       }

@@ -22,7 +22,7 @@ export const MentionElement = withRef<
 
   return (
     <PlateElement
-      ref={ref}
+     ref={ref as React.Ref<HTMLDivElement>}
       className={cn(
         "inline-block cursor-pointer rounded-md bg-muted px-1.5 py-0.5 align-baseline text-sm font-medium",
         selected && focused && "ring-2 ring-ring",

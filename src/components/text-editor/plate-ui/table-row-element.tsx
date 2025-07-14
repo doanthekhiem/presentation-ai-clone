@@ -13,7 +13,7 @@ export const TableRowElement = withRef<
 >(({ children, hideBorder, ...props }, ref) => {
   return (
     <PlateElement
-      ref={ref}
+     ref={ref as React.Ref<HTMLDivElement>}
       as="tr"
       className={cn('h-full', hideBorder && 'border-none')}
       {...props}

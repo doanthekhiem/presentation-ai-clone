@@ -20,5 +20,5 @@ export const MarkToolbarButton = withRef<
   const state = useMarkToolbarButtonState({ clear, nodeType });
   const { props } = useMarkToolbarButton(state);
 
-  return <ToolbarButton ref={ref} {...props} {...rest} />;
+  return <ToolbarButton ref={ref as React.Ref<HTMLButtonElement>} {...props} {...rest} />;
 });

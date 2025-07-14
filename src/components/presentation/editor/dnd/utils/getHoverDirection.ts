@@ -16,7 +16,7 @@ export interface GetHoverDirectionOptions {
   monitor: DropTargetMonitor;
 
   /** The node ref of the node being dragged. */
-  nodeRef: React.RefObject<HTMLElement>;
+  nodeRef: React.RefObject<HTMLElement | null>;
 }
 
 /**

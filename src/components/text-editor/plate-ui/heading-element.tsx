@@ -28,7 +28,7 @@ export const HeadingElement = withRef<typeof HeadingElementVariants>(
   ({ children, variant = "h1", ...props }, ref) => {
     return (
       <HeadingElementVariants
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         as={variant!}
         variant={variant}
         {...props}

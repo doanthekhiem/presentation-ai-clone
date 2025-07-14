@@ -8,7 +8,7 @@ import { PlateLeaf } from '@udecode/plate-common/react';
 export const HighlightLeaf = withRef<typeof PlateLeaf>(
   ({ children, className, ...props }, ref) => (
     <PlateLeaf
-      ref={ref}
+     ref={ref as React.Ref<HTMLDivElement>}
       asChild
       className={cn('bg-highlight/30 text-inherit', className)}
       {...props}

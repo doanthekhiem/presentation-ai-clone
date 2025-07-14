@@ -34,7 +34,7 @@ export const IconElementComponent = withRef<typeof PlateElement>(
 
     return (
       <PlateElement
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         element={element}
         className={cn("inline-flex justify-center", className)}
         {...props}

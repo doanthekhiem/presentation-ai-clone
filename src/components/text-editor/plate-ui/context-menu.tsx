@@ -26,7 +26,7 @@ const ContextMenuGroup = React.forwardRef<
       />
 
       <ContextMenuPrimitive.Group
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         {...props}
         className={cn(
           "hidden",
@@ -56,7 +56,7 @@ const ContextMenuSubTrigger = React.forwardRef<
   }
 >(({ children, className, inset, ...props }, ref) => (
   <ContextMenuPrimitive.SubTrigger
-    ref={ref}
+   ref={ref as React.Ref<HTMLDivElement>}
     className={cn(
       "mx-1 flex h-[28px] cursor-default select-none items-center rounded-sm px-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[state=open]:bg-accent data-[state=open]:text-accent-foreground",
       inset && "pl-8",
@@ -75,7 +75,7 @@ const ContextMenuSubContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.SubContent>
 >(({ className, ...props }, ref) => (
   <ContextMenuPrimitive.SubContent
-    ref={ref}
+   ref={ref as React.Ref<HTMLDivElement>}
     className={cn(
       "z-50 min-w-32 overflow-hidden rounded-md border bg-popover py-1.5 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
       className,
@@ -91,7 +91,7 @@ const ContextMenuContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ContextMenuPrimitive.Portal>
     <ContextMenuPrimitive.Content
-      ref={ref}
+     ref={ref as React.Ref<HTMLDivElement>}
       className={cn(
         "z-50 min-w-32 overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md animate-in fade-in-80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
         className,
@@ -109,7 +109,7 @@ const ContextMenuItem = React.forwardRef<
   }
 >(({ className, inset, ...props }, ref) => (
   <ContextMenuPrimitive.Item
-    ref={ref}
+   ref={ref as React.Ref<HTMLDivElement>}
     className={cn(
       "relative mx-1 flex h-[28px] cursor-default select-none items-center rounded-sm px-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       inset && "pl-8",
@@ -125,7 +125,7 @@ const ContextMenuCheckboxItem = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.CheckboxItem>
 >(({ checked, children, className, ...props }, ref) => (
   <ContextMenuPrimitive.CheckboxItem
-    ref={ref}
+   ref={ref as React.Ref<HTMLDivElement>}
     className={cn(
       "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className,
@@ -149,7 +149,7 @@ const ContextMenuRadioItem = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.RadioItem>
 >(({ children, className, ...props }, ref) => (
   <ContextMenuPrimitive.RadioItem
-    ref={ref}
+   ref={ref as React.Ref<HTMLDivElement>}
     className={cn(
       "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className,
@@ -173,7 +173,7 @@ const ContextMenuLabel = React.forwardRef<
   }
 >(({ className, inset, ...props }, ref) => (
   <ContextMenuPrimitive.Label
-    ref={ref}
+   ref={ref as React.Ref<HTMLDivElement>}
     className={cn(
       "px-2 py-1.5 text-sm font-semibold text-foreground",
       inset && "pl-8",
@@ -189,7 +189,7 @@ const ContextMenuSeparator = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Separator>
 >(({ className, ...props }, ref) => (
   <ContextMenuPrimitive.Separator
-    ref={ref}
+   ref={ref as React.Ref<HTMLDivElement>}
     className={cn("-mx-1 my-1 h-px bg-border", className)}
     {...props}
   />

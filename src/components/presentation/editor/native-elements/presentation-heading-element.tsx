@@ -30,7 +30,7 @@ export const PresentationHeadingElement = withRef<
 >(({ children, as = "h1", className, ...props }, ref) => {
   return (
     <HeadingElementVariants
-      ref={ref}
+     ref={ref as React.Ref<HTMLDivElement>}
       as={as}
       variant={as as "h1" | "h2" | "h3" | "h4" | "h5" | "h6"}
       className={cn("presentation-heading", className)}

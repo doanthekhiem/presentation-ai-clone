@@ -17,7 +17,7 @@ export const LinkElement = withRef<typeof PlateElement>(
 
     return (
       <PlateElement
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         as="a"
         className={cn(
           "font-medium text-primary underline decoration-primary underline-offset-4",

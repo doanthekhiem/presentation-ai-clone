@@ -34,7 +34,7 @@ export const TagElement = withRef<typeof PlateElement>(
 
     return (
       <PlateElement
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         className={cn(
           'm-0.5 inline-flex cursor-pointer select-none',
           className

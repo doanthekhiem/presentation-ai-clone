@@ -25,7 +25,7 @@ export const useDraggable = (props: UseDndNodeOptions): DraggableState => {
 
   const editor = useEditorRef();
 
-  const nodeRef = React.useRef<HTMLDivElement>(null);
+  const nodeRef = React.useRef<HTMLDivElement | null>(null);
 
   if (!editor.plugins.dnd)
     return {

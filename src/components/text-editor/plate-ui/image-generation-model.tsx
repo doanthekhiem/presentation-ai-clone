@@ -11,21 +11,12 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { useEditorRef } from "@udecode/plate-core/react";
-import {
-  generateImageAction,
-  type ImageModelList,
-} from "@/app/_actions/image/generate";
+import { generateImageAction, type ImageModelList } from "@/app/_actions/image/generate";
 import { toast } from "sonner";
 import { insertNodes } from "@udecode/plate-common";
 import { ImagePlugin } from "@udecode/plate-media/react";
 import { FloatingInput } from "./input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 const MODEL_OPTIONS = [
   {
     label: "Flux.1 [schnell] (free)",
@@ -56,9 +47,7 @@ export function GenerateImageDialogContent({
 }) {
   const editor = useEditorRef();
   const [prompt, setPrompt] = useState("");
-  const [selectedModel, setSelectedModel] = useState<ImageModelList>(
-    "black-forest-labs/FLUX.1-schnell-Free"
-  );
+  const [selectedModel, setSelectedModel] = useState<ImageModelList>("black-forest-labs/FLUX.1-schnell-Free");
 
   const generateImage = async () => {
     if (!prompt.trim()) {
@@ -71,23 +60,21 @@ export function GenerateImageDialogContent({
     try {
       const result = await generateImageAction(prompt, selectedModel);
 
-      if (!result.success || !result.image?.url) {
+      if (!result.success || !result.image?.id) {
         throw new Error(result.error ?? "Failed to generate image");
       }
 
       insertNodes(editor, {
         children: [{ text: "" }],
         type: ImagePlugin.key,
-        url: result.image.url,
+        url: result.image.id,
         query: prompt,
       });
 
       setOpen(false);
       toast.success("Image generated successfully!");
     } catch (error) {
-      toast.error(
-        error instanceof Error ? error.message : "Failed to generate image"
-      );
+      toast.error(error instanceof Error ? error.message : "Failed to generate image");
     } finally {
       setIsGenerating(false);
     }
@@ -97,9 +84,7 @@ export function GenerateImageDialogContent({
     <>
       <AlertDialogHeader>
         <AlertDialogTitle>Generate Image with AI</AlertDialogTitle>
-        <AlertDialogDescription>
-          Enter a detailed description of the image you want to generate
-        </AlertDialogDescription>
+        <AlertDialogDescription>Enter a detailed description of the image you want to generate</AlertDialogDescription>
       </AlertDialogHeader>
 
       <div className="space-y-4">
@@ -122,9 +107,7 @@ export function GenerateImageDialogContent({
         {isGenerating && (
           <div className="mt-4 space-y-3">
             <div className="h-64 w-full animate-pulse rounded-lg bg-gray-200 dark:bg-gray-800" />
-            <div className="text-center text-sm text-gray-500">
-              Generating your image...
-            </div>
+            <div className="text-center text-sm text-gray-500">Generating your image...</div>
           </div>
         )}
       </div>

@@ -9,7 +9,7 @@ export const CodeLeaf = withRef<typeof PlateLeaf>(
   ({ children, className, ...props }, ref) => {
     return (
       <PlateLeaf
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         asChild
         className={cn(
           'whitespace-pre-wrap rounded-md bg-muted px-[0.3em] py-[0.2em] font-mono text-sm',

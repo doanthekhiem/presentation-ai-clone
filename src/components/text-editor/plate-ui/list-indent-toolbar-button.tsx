@@ -17,7 +17,7 @@ export const ListIndentToolbarButton = withRef<
 
   return (
     <ToolbarButton
-      ref={ref}
+      ref={ref as React.Ref<HTMLButtonElement>}
       onClick={() => {
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         reverse ? unindentListItems(editor) : indentListItems(editor);

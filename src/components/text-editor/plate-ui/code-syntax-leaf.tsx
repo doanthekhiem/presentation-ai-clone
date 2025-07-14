@@ -13,7 +13,7 @@ export const CodeSyntaxLeaf = withRef<typeof PlateLeaf>(
     const { tokenProps } = useCodeSyntaxLeaf({ leaf });
 
     return (
-      <PlateLeaf ref={ref} {...props}>
+      <PlateLeaf ref={ref as React.Ref<HTMLButtonElement>} {...props}>
         <span {...tokenProps}>{children}</span>
       </PlateLeaf>
     );

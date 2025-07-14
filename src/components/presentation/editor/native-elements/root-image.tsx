@@ -64,8 +64,8 @@ export default function RootImage({
     setError(undefined);
     try {
       const result = await generateImageAction(prompt, imageModel);
-      if (result.image?.url) {
-        const newImageUrl = result.image.url;
+      if (result.image?.id) {
+        const newImageUrl = result.image.id;
         setImageUrl(newImageUrl);
 
         // Get current slides state

@@ -24,7 +24,7 @@ const SheetOverlay = React.forwardRef<
       className,
     )}
     {...props}
-    ref={ref}
+   ref={ref as React.Ref<HTMLDivElement>}
   />
 ));
 SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
@@ -73,7 +73,7 @@ const SheetContent = React.forwardRef<
     <SheetPortal container={container}>
       {overlay && <SheetOverlay />}
       <SheetPrimitive.Content
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         className={cn(sheetVariants({ side }), className)}
         {...props}
       >
@@ -117,7 +117,7 @@ const SheetTitle = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title>
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Title
-    ref={ref}
+   ref={ref as React.Ref<HTMLDivElement>}
     className={cn("text-lg font-semibold text-foreground", className)}
     {...props}
   />
@@ -129,7 +129,7 @@ const SheetDescription = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description>
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Description
-    ref={ref}
+   ref={ref as React.Ref<HTMLDivElement>}
     className={cn("text-sm text-muted-foreground", className)}
     {...props}
   />

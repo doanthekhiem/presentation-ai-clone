@@ -130,7 +130,7 @@ export const VisualizationListElement = withRef<typeof PlateElement>(
 
     return (
       <PlateElement
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         element={element}
         className={cn("my-4", className)}
         {...props}

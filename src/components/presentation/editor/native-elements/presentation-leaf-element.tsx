@@ -18,7 +18,7 @@ export const PresentationLeafElement = withRef<
   // Get the appropriate class name based on theme, mode and variant
   return (
     <PlateLeaf
-      ref={ref}
+     ref={ref as React.Ref<HTMLDivElement>}
       className={cn("presentation-leaf", `presentation-${variant}`, className)}
       {...props}
     >

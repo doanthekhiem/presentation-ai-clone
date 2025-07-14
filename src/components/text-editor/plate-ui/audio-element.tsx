@@ -17,7 +17,7 @@ export const MediaAudioElement = withHOC(
 
     return (
       <PlateElement
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         className={cn(className, "relative mb-1")}
         {...props}
       >

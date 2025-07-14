@@ -33,7 +33,7 @@ export const TocElement = withRef<typeof PlateElement>(
 
     return (
       <PlateElement
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         className={cn("relative mb-1 p-0", className)}
         {...props}
       >

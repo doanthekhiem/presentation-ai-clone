@@ -16,7 +16,7 @@ export const GeneratingLeaf = withRef<typeof PlateLeaf>(
       isGeneratingPresentation && (leaf.generating as boolean);
 
     return (
-      <PlateLeaf ref={ref} {...props}>
+      <PlateLeaf ref={ref as React.Ref<HTMLButtonElement>} {...props}>
         <span className="flex items-end gap-1">
           {children}
           {isGenerating && (

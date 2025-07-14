@@ -11,7 +11,7 @@ export const ParagraphElement = withRef<typeof PlateElement>(
   ({ children, className, ...props }, ref) => {
     return (
       <PlateElement
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         className={cn("m-0 px-0 py-1", className)}
         {...props}
       >

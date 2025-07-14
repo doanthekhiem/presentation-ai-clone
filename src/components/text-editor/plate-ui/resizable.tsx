@@ -52,7 +52,7 @@ export const ResizeHandle = withRef<typeof ResizeHandlePrimitive>(
 
     return (
       <ResizeHandleVariants
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         data-resizing={state.isResizing}
         direction={options?.direction}
         {...resizeHandle.props}

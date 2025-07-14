@@ -31,7 +31,7 @@ export interface UseDropNodeOptions
   element: TElement;
 
   /** The reference to the node being dragged. */
-  nodeRef: React.RefObject<HTMLElement>;
+  nodeRef: React.RefObject<HTMLElement | null>;
 
   /**
    * Intercepts the drop handling. If `false` is returned, the default drop

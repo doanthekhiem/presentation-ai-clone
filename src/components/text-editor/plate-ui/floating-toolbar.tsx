@@ -70,7 +70,7 @@ export const FloatingToolbar = withRef<
   return (
     <div ref={clickOutsideRef}>
       <Toolbar
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         className={cn(
           "absolute z-50 overflow-x-auto whitespace-nowrap rounded-md border bg-popover opacity-100 shadow-md scrollbar-hide print:hidden",
           "max-w-[80vw]"

@@ -16,7 +16,7 @@ export const PresentationParagraphElement = withRef<
 >(({ className, children, ...props }, ref) => {
   return (
     <PlateElement
-      ref={ref}
+     ref={ref as React.Ref<HTMLDivElement>}
       as="p"
       className={cn(
         "presentation-paragraph m-0 px-0 py-1 text-base",

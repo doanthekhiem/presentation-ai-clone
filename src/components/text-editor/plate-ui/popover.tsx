@@ -32,7 +32,7 @@ export const PopoverContent = withRef<
 >(({ align = 'center', animate, className, sideOffset = 4, ...props }, ref) => (
   <PopoverPrimitive.Portal>
     <PopoverPrimitive.Content
-      ref={ref}
+     ref={ref as React.Ref<HTMLDivElement>}
       className={cn(popoverVariants({ animate }), className)}
       align={align}
       sideOffset={sideOffset}

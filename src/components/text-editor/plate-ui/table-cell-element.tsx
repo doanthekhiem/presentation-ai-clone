@@ -53,7 +53,7 @@ export const TableCellElement = withRef<
 
   return (
     <PlateElement
-      ref={ref}
+     ref={ref as React.Ref<HTMLDivElement>}
       as={isHeader ? 'th' : 'td'}
       className={cn(
         'relative h-full overflow-visible border-none bg-background p-0',

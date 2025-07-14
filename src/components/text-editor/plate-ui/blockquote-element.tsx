@@ -10,7 +10,7 @@ export const BlockquoteElement = withRef<typeof PlateElement>(
   ({ children, className, ...props }, ref) => {
     return (
       <PlateElement
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         as="blockquote"
         className={cn('my-1 border-l-2 pl-6 italic', className)}
         {...props}

@@ -35,7 +35,7 @@ export const DropdownMenuGroup = React.forwardRef<
       />
 
       <DropdownMenuPrimitive.Group
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         {...props}
         className={cn(
           "hidden",
@@ -72,7 +72,7 @@ export const DropdownMenuRadioGroup = React.forwardRef<
       />
 
       <DropdownMenuPrimitive.RadioGroup
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         {...props}
         className={cn(
           "hidden",
@@ -96,7 +96,7 @@ export const DropdownMenuSubTrigger = withRef<
   }
 >(({ children, className, inset, ...props }, ref) => (
   <DropdownMenuPrimitive.SubTrigger
-    ref={ref}
+   ref={ref as React.Ref<HTMLDivElement>}
     className={cn(
       "mx-1 flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1 text-sm outline-none focus:bg-accent data-[disabled]:pointer-events-none data-[state=open]:bg-accent data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
       inset && "pl-8",
@@ -130,7 +130,7 @@ export const DropdownMenuContent = withRef<
 >(({ ...props }, ref) => (
   <DropdownMenuPrimitive.Portal>
     <DropdownMenuContentVariants
-      ref={ref}
+     ref={ref as React.Ref<HTMLDivElement>}
       onCloseAutoFocus={(e) => {
         e.preventDefault();
       }}
@@ -164,7 +164,7 @@ export const DropdownMenuCheckboxItem = withRef<
   typeof DropdownMenuPrimitive.CheckboxItem
 >(({ children, className, ...props }, ref) => (
   <DropdownMenuPrimitive.CheckboxItem
-    ref={ref}
+   ref={ref as React.Ref<HTMLDivElement>}
     className={cn(
       "relative mx-1 flex select-none items-center gap-2 rounded-sm py-1 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0",
       "cursor-pointer",
@@ -190,7 +190,7 @@ export const DropdownMenuRadioItem = withRef<
   }
 >(({ children, className, hideIcon, ...props }, ref) => (
   <DropdownMenuPrimitive.RadioItem
-    ref={ref}
+   ref={ref as React.Ref<HTMLDivElement>}
     className={cn(
       "relative mx-1 flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[state=checked]:text-accent-foreground data-[disabled]:opacity-50 [&_svg]:size-4",
       className,

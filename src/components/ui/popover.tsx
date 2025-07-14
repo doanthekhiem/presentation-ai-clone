@@ -27,7 +27,7 @@ const PopoverContent = React.forwardRef<
   ) => (
     <PopoverPrimitive.Portal container={container}>
       <PopoverPrimitive.Content
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         align={align}
         sideOffset={sideOffset}
         className={cn(

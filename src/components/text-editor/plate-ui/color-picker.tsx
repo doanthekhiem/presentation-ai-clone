@@ -37,7 +37,7 @@ export const ColorPickerContent = withRef<
     ref
   ) => {
     return (
-      <div ref={ref} className={cn('flex flex-col', className)} {...props}>
+      <div ref={ref as React.Ref<HTMLDivElement>} className={cn('flex flex-col', className)} {...props}>
         <DropdownMenuGroup label="Custom Colors">
           <ColorCustom
             color={color}

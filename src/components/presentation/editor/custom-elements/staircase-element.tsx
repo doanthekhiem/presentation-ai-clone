@@ -23,7 +23,7 @@ export const StaircaseElement = withRef<typeof PlateElement>(
 
     return (
       <PlateElement
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         element={element}
         className={cn("my-8", className)}
         {...props}

@@ -24,7 +24,7 @@ export const CycleElement = withRef<typeof PlateElement>(
 
     return (
       <PlateElement
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         element={element}
         className={cn("relative my-8", className)}
         {...props}

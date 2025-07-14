@@ -226,7 +226,7 @@ export function PresentationItem({
 
       console.log(response);
       // Route based on content status
-      if (Object.keys(response?.presentation?.content ?? {}).length > 0) {
+      if (response.success && response.content && Object.keys(response.content).length > 0) {
         router.push(`/presentation/${presentation.id}`);
       } else {
         router.push(`/presentation/generate/${presentation.id}`);

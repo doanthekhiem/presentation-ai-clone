@@ -13,7 +13,7 @@ export const PlateElement = React.forwardRef<HTMLDivElement, PlateElementProps>(
   ({ children, className, ...props }: PlateElementProps, ref) => {
     return (
       <PlateElementPrimitive
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         className={cn("relative !select-text", className)}
         {...props}
       >

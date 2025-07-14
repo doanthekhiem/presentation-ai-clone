@@ -60,7 +60,7 @@ export const DateElement = withRef<typeof PlateElement>(
 
     return (
       <PlateElement
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         className={cn(className, "inline-block")}
         contentEditable={false}
         {...props}

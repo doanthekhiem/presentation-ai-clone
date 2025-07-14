@@ -91,7 +91,7 @@ export const SlashInputElement = withRef<typeof PlateElement>(
     return (
       <>
         <PlateElement
-          ref={ref}
+         ref={ref as React.Ref<HTMLDivElement>}
           as="span"
           data-slate-value={element.value}
           {...props}

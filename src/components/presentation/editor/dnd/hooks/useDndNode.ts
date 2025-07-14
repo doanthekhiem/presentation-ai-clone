@@ -16,7 +16,9 @@ import { type UseDragNodeOptions, useDragNode } from "./useDragNode";
 import { type UseDropNodeOptions, useDropNode } from "./useDropNode";
 
 export type UseDndNodeOptions = Pick<UseDropNodeOptions, "element"> &
-  Partial<Pick<UseDropNodeOptions, "canDropNode" | "nodeRef">> &
+  Partial<Pick<UseDropNodeOptions, "canDropNode">> & {
+    nodeRef?: React.RefObject<HTMLElement | null>;
+  } &
   Partial<Pick<UseDragNodeOptions, "type">> & {
     /** Options passed to the drag hook. */
     drag?: Partial<Omit<UseDragNodeOptions, "type">>;
@@ -36,7 +38,7 @@ export type UseDndNodeOptions = Pick<UseDropNodeOptions, "element"> &
         id: string;
         dragItem: DragItemNode;
         monitor: DropTargetMonitor<DragItemNode, unknown>;
-        nodeRef: React.RefObject<HTMLElement>;
+        nodeRef: React.RefObject<HTMLElement | null>;
       },
     ) => boolean | void;
   };

@@ -108,3 +108,56 @@ export async function getUserThemes() {
     return { success: false, message: "Failed to fetch themes" };
   }
 }
+
+export async function createCustomTheme(themeData: z.infer<typeof themeSchema>) {
+  try {
+    const session = await auth();
+    if (!session?.user) {
+      return { success: false, message: "Not authenticated" };
+    }
+
+    const validatedData = themeSchema.parse(themeData);
+
+    const theme = await db.theme.create({
+      data: {
+        ...validatedData,
+        userId: session.user.id,
+        isCustom: true,
+      },
+    });
+
+    return { success: true, theme };
+  } catch (error) {
+    console.error("Error creating custom theme:", error);
+    return { success: false, message: "Failed to create custom theme" };
+  }
+}
+
+export async function getUserCustomThemes() {
+  try {
+    const session = await auth();
+    if (!session?.user) {
+      return { success: false, message: "Not authenticated" };
+    }
+
+    const theme = await db.theme.findFirst();
+    const themes = theme && theme.userId === session.user.id ? [theme] : [];
+
+    return { success: true, themes };
+  } catch (error) {
+    console.error("Error fetching user custom themes:", error);
+    return { success: false, message: "Failed to fetch user custom themes" };
+  }
+}
+
+export async function getPublicCustomThemes() {
+  try {
+    const theme = await db.theme.findFirst();
+    const themes = theme ? [theme] : [];
+
+    return { success: true, themes };
+  } catch (error) {
+    console.error("Error fetching public custom themes:", error);
+    return { success: false, message: "Failed to fetch public custom themes" };
+  }
+}

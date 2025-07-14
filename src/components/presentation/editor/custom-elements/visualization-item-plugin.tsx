@@ -18,7 +18,7 @@ export const VisualizationItemElementComponent = withRef<typeof PlateElement>(
   ({ element, children, className, ...props }, ref) => {
     return (
       <PlateElement
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         element={element}
         className={cn(className)}
         {...props}

@@ -19,7 +19,7 @@ export const ToggleElement = withRef<typeof PlateElement>(
 
     return (
       <PlateElement
-        ref={ref}
+       ref={ref as React.Ref<HTMLDivElement>}
         className={cn('relative pl-6', className)}
         {...props}
       >
